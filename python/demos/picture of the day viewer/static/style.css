@@ -9,8 +9,7 @@ body {
 h1, h2 {
     padding: 12px;
     background-color: #F3F9FF;
-    border-top: 1px solid #2a4b8d;
-    border-bottom: 1px solid #2a4b8d;
+    border: 1px solid #2a4b8d;
 }
 
 h1 {
@@ -18,7 +17,7 @@ h1 {
     color: white;
 }
 
-h2, p {
+h2 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -31,7 +30,6 @@ a {
 .card {
     background-color: #fff;
     border-radius: 8px;
-    border: 1px solid #2a4b8d;
     min-width: 200px;
     max-width: 775px;
     margin: auto;
@@ -48,6 +46,7 @@ img {
 
 p {
     margin: 12px;
+    padding: 12px;
 }
 
 .date {

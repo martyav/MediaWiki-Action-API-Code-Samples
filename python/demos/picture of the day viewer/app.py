@@ -23,7 +23,7 @@ def fetch_potd(date):
         "format": "json",
         "formatversion": "2",
         "prop": "images",
-        "titles": "Template:POTD protected/" + date
+        "titles": "Template:POTD/" + date
     }
 
     response = SESSION.get(url = ENDPOINT, params = params)
@@ -45,6 +45,7 @@ def fetch_image_url(file_name):
         "format": "json",
         "prop": "imageinfo",
         "iiprop": "url",
+        "iiurlwidth": "500",
         "titles": file_name
     }
 
@@ -58,15 +59,15 @@ def fetch_image_url(file_name):
 
 def fetch_description(page_title):
     params = {
-        "action": "query",
-        "format": "json",
-        "list": "search",
-        "srsearch": page_title
+        "action": "cirrusdump",
+        "format": "json"
     }
 
-    response = SESSION.get(url = ENDPOINT, params = params)
+    response = SESSION.get(url = "https://en.wikipedia.org/wiki/" + page_title, params = params)
     data = response.json()
-    results = data["query"]["search"][1]["snippet"]
+    print(data)
+    print(page_title)
+    results = " ".join(data[0]["_source"]["text"].split(" Picture of the day")[1:])
 
     return results
 
